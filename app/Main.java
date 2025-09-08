@@ -13,7 +13,7 @@ public class Main {
 
             System.out.print("Número de hijos por nodo: ");
             int hijos = sc.nextInt();
-            System.out.print("Dirección (1 = izquierda→derecha, 2 = derecha→izquierda): ");
+            System.out.print("Dirección (1 = izquierda -> derecha, 2 = derecha - > izquierda): ");
             int dir = sc.nextInt();
             boolean izqADer = (dir != 2); 
 
