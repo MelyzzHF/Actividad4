@@ -1,10 +1,10 @@
 package app.scr;
 
-public class Persona {
+public class Empleado {
     int id;
         String nombre;
 
-        public Persona(int id, String nombre) {
+        public Empleado(int id, String nombre) {
             this.id = id;
             this.nombre = nombre;
         }

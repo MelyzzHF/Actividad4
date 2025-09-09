@@ -41,6 +41,7 @@ public class Arbol {
 
         List<Node<String>> hijos = nodo.getHijos();
         int n = hijos.size();
+        System.out.println("Cantidad de hijos " + n);
 
         if (n > 0) {
             StringBuilder lineas = new StringBuilder();

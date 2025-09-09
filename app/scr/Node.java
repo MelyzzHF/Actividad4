@@ -20,6 +20,45 @@ public class Node<T> {
         hijos.add(hijo);
     }
 
+    public boolean agregar(T padre, T hijo) {
+        if (this.data.equals(padre)) {
+            this.hijos.add(new Node<>(hijo));
+            return true;
+        }
+        for (Node<T> n : hijos) {
+            if (n.agregar(padre, hijo)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminar(T valor) {
+        for (int i = 0; i < hijos.size(); i++) {
+            Node<T> hijo = hijos.get(i);
+            if (hijo.getData().equals(valor)) {
+                hijos.remove(i); 
+                return true;
+            } else if (hijo.eliminar(valor)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Node<T> buscar(T valor) {
+        if (this.data.equals(valor)) {
+            return this;
+        }
+        for (Node<T> hijo : hijos) {
+            Node<T> encontrado = hijo.buscar(valor);
+            if (encontrado != null) {
+                return encontrado;
+            }
+        }
+        return null;
+    }
+
     public T getData() {
         return data;
     }
