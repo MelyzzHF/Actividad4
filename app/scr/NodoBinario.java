@@ -1,35 +1,51 @@
 package app.scr;
 
-class NodoBinario {
-    private String valor;
-    private NodoBinario izquierdo, derecho;
 
-    public String getValor() {
-        return valor;
+class NodoBinario<T> {
+    private T data;
+    private NodoBinario<T> izquierdo;
+    private NodoBinario<T> derecho;
+
+    public T getData() {
+        return data;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
+    public void setData(T data) {
+        this.data = data;
     }
 
-
-    public NodoBinario getIzquierdo() {
+    public NodoBinario<T>  getIzquierdo() {
         return izquierdo;
     }
 
-    public void setIzquierdo(NodoBinario izquierdo) {
+    public void setIzquierdo(NodoBinario<T>  izquierdo) {
         this.izquierdo = izquierdo;
     }
 
-    public NodoBinario getDerecho() {
+    public NodoBinario<T>  getDerecho() {
         return derecho;
     }
 
-    public void setDerecho(NodoBinario derecho) {
+    public void setDerecho(NodoBinario<T>  derecho) {
         this.derecho = derecho;
     }
 
-    public NodoBinario(String valor) {
-        this.valor = valor;
+    public NodoBinario() {
+        this.data = null;
+        this.izquierdo = null;
+        this.derecho = null;
     }
+
+    public NodoBinario(T data) {
+        this.data = data;
+    }
+
+    public NodoBinario(T data,NodoBinario<T> izquierdo, NodoBinario<T> derecho) {
+        this.data = data;
+        this.izquierdo = izquierdo;
+        this.derecho = derecho;
+    }
+
+
+
 }

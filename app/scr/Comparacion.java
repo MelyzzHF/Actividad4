@@ -6,14 +6,14 @@ import java.util.*;
 //ya que se pidio en la clase anterior, proximammente se cambiara de n-ario a binario para la actividad 4 
 
 public class Comparacion {
-    public static void main(String[] args) {
+    public static <T> void main(String[] args) {
         String[] arreglo = new String[10000];
         for (int i = 0; i < 10000; i++) {
             arreglo[i] = "Elemento" + i;
         }
         Collections.shuffle(Arrays.asList(arreglo));
 
-        ArbolBinario arbolBinario = new ArbolBinario();
+        ArbolBinario<T> arbolBinario = new ArbolBinario<T>();
         for (String elemento : arreglo) {
             arbolBinario.insertar(elemento);
         }
