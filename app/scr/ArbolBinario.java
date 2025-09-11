@@ -1,40 +1,58 @@
 package app.scr;
 
-public class ArbolBinario<T> {
-    private NodoBinario<T> raiz;
+public class ArbolBinario {
+    private NodoBinario raiz;
 
-    public void insertar(String data) {
-        raiz = insertarRecursivo(raiz, data);
+    public ArbolBinario(){
+        this.raiz = null;
     }
 
-    private NodoBinario<T> insertarRecursivo(NodoBinario<T> nodo, String data) {
-        if (nodo == null)
-            return new NodoBinario<T>();
+    public void insertar(Empleado empleado) {
+        raiz = insertarRecursivo(raiz, empleado);
+    }
 
-        if (data.compareTo((String) nodo.getData()) < 0) {
-            nodo.setIzquierdo(insertarRecursivo(nodo.getIzquierdo(), data));
+    private NodoBinario insertarRecursivo(NodoBinario nodo, Empleado empleado) {
+        if (nodo == null)
+            return new NodoBinario(empleado);
+
+        if (empleado.id < nodo.getID()) {
+            nodo.setIzquierdo(insertarRecursivo(nodo.getIzquierdo(), empleado));
         } else {
-            nodo.setDerecho(insertarRecursivo(nodo.getDerecho(), data));
+            nodo.setDerecho(insertarRecursivo(nodo.getDerecho(), empleado));
         }
         return nodo;
     }
 
-    public boolean buscar(String valor) {
-        return buscarRecursivo(raiz, valor);
+    public boolean buscar(int id) {
+        return buscarRecursivo(raiz, id);
     }
 
-    private boolean buscarRecursivo(NodoBinario<T> nodo, String data) {
+    private boolean buscarRecursivo(NodoBinario nodo, int id) {
         if (nodo == null)
             return false;
-        if (data.equals(nodo.getData()))
+        if (id == nodo.getID())
             return true;
 
-        if (data.compareTo((String) nodo.getData()) < 0) {
-            return buscarRecursivo(nodo.getIzquierdo(), data);
+        if (id < nodo.getID()) {
+            return buscarRecursivo(nodo.getIzquierdo(), id);
         } else {
-            return buscarRecursivo(nodo.getDerecho(), data);
+            return buscarRecursivo(nodo.getDerecho(), id);
         }
     }
+    
+    public void eliminar(int id){
+        raiz = eliminarRecursivo(raiz, id);
+    }
+
+    public NodoBinario eliminarRecursivo(NodoBinario nodo, int id){
+        if (nodo == null){
+            return null;
+        }
+
+
+    }
+
+
 
     // Métodos para los orden del árbol 
     public void preorden() {
@@ -43,9 +61,9 @@ public class ArbolBinario<T> {
         System.out.println();
     }
     
-    private void preorden(NodoBinario<T> nodo) {
+    private void preorden(NodoBinario nodo) {
         if (nodo != null) {
-            System.out.print(nodo.getData() + " ");
+            System.out.print(nodo.getEmpleado() + " ");
             preorden(nodo.getIzquierdo());
             preorden(nodo.getDerecho());
         }
@@ -57,10 +75,10 @@ public class ArbolBinario<T> {
         System.out.println();
     }
     
-    private void inorden(NodoBinario<T> nodo) {
+    private void inorden(NodoBinario nodo) {
         if (nodo != null) {
             inorden(nodo.getIzquierdo());
-            System.out.print(nodo.getData() + " ");
+            System.out.print(nodo.getEmpleado() + " ");
             inorden(nodo.getDerecho());
         }
     }
@@ -71,11 +89,11 @@ public class ArbolBinario<T> {
         System.out.println();
     }
     
-    private void postorden(NodoBinario<T> nodo) {
+    private void postorden(NodoBinario nodo) {
         if (nodo != null) {
             postorden(nodo.getIzquierdo());
             postorden(nodo.getDerecho());
-            System.out.print(nodo.getData() + " ");
+            System.out.print(nodo.getEmpleado() + " ");
         }
     }
 }

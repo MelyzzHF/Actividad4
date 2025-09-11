@@ -1,51 +1,44 @@
 package app.scr;
 
+class NodoBinario {
+    private Empleado empleado;
+    private NodoBinario izquierdo;
+    private NodoBinario derecho;
 
-class NodoBinario<T> {
-    private T data;
-    private NodoBinario<T> izquierdo;
-    private NodoBinario<T> derecho;
-
-    public T getData() {
-        return data;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public int getID() {
+        return empleado.id;
     }
 
-    public NodoBinario<T>  getIzquierdo() {
+    public NodoBinario getIzquierdo() {
         return izquierdo;
     }
 
-    public void setIzquierdo(NodoBinario<T>  izquierdo) {
+    public void setIzquierdo(NodoBinario izquierdo) {
         this.izquierdo = izquierdo;
     }
 
-    public NodoBinario<T>  getDerecho() {
+    public NodoBinario getDerecho() {
         return derecho;
     }
 
-    public void setDerecho(NodoBinario<T>  derecho) {
+    public void setDerecho(NodoBinario derecho) {
         this.derecho = derecho;
     }
 
-    public NodoBinario() {
-        this.data = null;
+    public NodoBinario(Empleado empleado) {
+        this.empleado = empleado;
         this.izquierdo = null;
         this.derecho = null;
     }
 
-    public NodoBinario(T data) {
-        this.data = data;
-    }
-
-    public NodoBinario(T data,NodoBinario<T> izquierdo, NodoBinario<T> derecho) {
-        this.data = data;
+    public NodoBinario(Empleado empleado, NodoBinario izquierdo, NodoBinario derecho) {
+        this.empleado = empleado;
         this.izquierdo = izquierdo;
         this.derecho = derecho;
     }
-
-
 
 }
