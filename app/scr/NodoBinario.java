@@ -10,14 +10,13 @@ class NodoBinario {
     private Empleado empleado; // El nodo contiene la información del Empleado
     private NodoBinario izquierdo; // Simula el nodo izquierdo (hijo)
     private NodoBinario derecho; //Simula el nodo derecho (hijo)
-    private Empleado sucesor; // Sirve para saber cual reemplazar y sea ordenado
 
     //Get´s y Set´s de los atributos y constructores
     public Empleado getEmpleado() {
         return empleado;
     }
-    public void setEmpleado(Empleado sucesor) {
-        this.sucesor = sucesor; 
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado; 
     }
 
     public int getID() {
