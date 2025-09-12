@@ -1,12 +1,23 @@
 package app.scr;
+/** * Autor: Melissa Yaretzi Hernández Flores
+ * * Fecha: 11/09/2025 
+ * * Descripción: La clase NodoBinario sirve para hacer los nodos que contiene el arbol, adentro de os nodos esta la información del empleado
+ * 
+ * **/
 
 class NodoBinario {
-    private Empleado empleado;
-    private NodoBinario izquierdo;
-    private NodoBinario derecho;
 
+    private Empleado empleado; // El nodo contiene la información del Empleado
+    private NodoBinario izquierdo; // Simula el nodo izquierdo (hijo)
+    private NodoBinario derecho; //Simula el nodo derecho (hijo)
+    private Empleado sucesor; // Sirve para saber cual reemplazar y sea ordenado
+
+    //Get´s y Set´s de los atributos y constructores
     public Empleado getEmpleado() {
         return empleado;
+    }
+    public void setEmpleado(Empleado sucesor) {
+        this.sucesor = sucesor; 
     }
 
     public int getID() {
@@ -40,5 +51,7 @@ class NodoBinario {
         this.izquierdo = izquierdo;
         this.derecho = derecho;
     }
+
+    
 
 }
